@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Binary Clock Simulator</title>
+        <link rel="stylesheet" href="simulator.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
+
+        <style>
+            .state.green {
+                background-color: #9BAD62;
+            }
+            .state.wrong {
+                background-color: #EE247E;
+            }
+        </style>
+    </head>
+    <body>
+        <div class = "title">
+            <h1>Binary Clock Simulator</h1>
+        </div>
+
+        <!-- User Input -->
+        <div class = "input">
+            <div class = "userInput">
+                <div class = "arrangeInput">
+                    <div class = "inputField">
+                        <input type="text" id="userInput" placeholder="Enter Binary Digits" />
+                    </div>
+                    <div class = "buttonField">
+                        <button id="submitButton">Go</button>
+                        <button id="reset">Reset</button>    
+                    </div>    
+                </div>
+            </div>
+            <div class = "displayUserInput">
+                <p>Current Input:<span class="displayValue"></span></p>
+            </div>
+        </div>
+
+        <!-- Binary Clock Simulator -->
+        <div class = "test">
+            <!-- Binary Hour State Machine -->
+            <div id = "BinaryHour" class = "hour">
+                <div id = "A" class = "state"></div>
+                <div id = "L1" class="line"></div>
+                <div id = "B" class = "state"></div>
+                <div id = "L2" class="line"></div>
+                <div id = "C" class = "state"></div>
+                <div id = "L3" class="line"></div>
+                <div id = "D" class = "state"></div>
+                <div id = "L4" class="line"></div>
+                <div id = "E" class = "state"></div>
+                <div id = "Label_H" class = "label">hours</div>
+            </div>
+            
+            <!-- Binary Minutes State Machine -->
+            <div id = "BinaryMinutes" class = "minutes">
+                <div id = "L5" class="line"></div>
+                <div id = "A1" class = "state"></div>
+                <div id = "L6" class="line"></div>
+                <div id = "B1" class = "state"></div>
+                <div id = "L7" class="line"></div>
+                <div id = "C1" class = "state"></div>
+                <div id = "L8" class="line"></div>
+                <div id = "D1" class = "state"></div>
+                <div id = "L9" class="line"></div>
+                <div id = "E1" class = "state"></div>
+                <div id = "L10" class="line"></div>
+                <div id = "F1" class = "state"></div>
+                <div id = "Label_M" class = "label">minutes</div>
+            </div>
+            
+            <!-- Binary Seconds State Machine -->
+            <div id = "BinarySeconds" class = "seconds">
+                <div id = "L11" class="line"></div>
+                <div id = "A2" class = "state"></div>
+                <div id = "L12" class="line"></div>
+                <div id = "B2" class = "state"></div>
+                <div id = "L13" class="line"></div>
+                <div id = "C2" class = "state"></div>
+                <div id = "L14" class="line"></div>
+                <div id = "D2" class = "state"></div>
+                <div id = "L15" class="line"></div>
+                <div id = "E2" class = "state"></div>
+                <div id = "L16" class="line"></div>
+                <div id = "F2" class = "state"></div>
+                <div id = "Label_H" class = "label">seconds</div>
+            </div>
+        </div>
+
+        <!-- Validation -->
+        <div class = "result">
+            <p>Result:<span class="validationResult"></span></p>
+        </div>
+
+        <!-- Clock Display -->
+        <div class="clocking">
+            <h2>
+                <span class="binaryclock">00:00:00</span>
+            </h2>
+        </div>
+        <script src="simulator.js"></script>
+    </body>
+</html>

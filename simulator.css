@@ -1,0 +1,223 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 20px;
+    row-gap: 20px;
+
+    background-color: #FBF5E5;
+}
+
+/* User Input */
+.title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    color: #343233;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+} /*okay*/
+.input p {
+    align-items: flex-start;
+    
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 21.73px;
+    color: #343233;
+}/*okay*/
+
+.input .userInput .arrangeInput{
+    display: flex;
+    flex-direction: row;
+}
+.input .userInput .arrangeInput .buttonField {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+#userInput {
+    border-radius: 79px;
+    
+    width: 407px;
+    height: 53px;
+    
+    text-align: center;
+    font-size: 21.73px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    background-color: #FBF5E5;
+}
+.input .userInput #submitButton {
+    border-radius: 79px;
+    
+    width: 69px; 
+    height: 28px;
+    
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    background-color: #FBF5E5;
+}
+.input .userInput #reset {
+    border-radius: 79px;
+    
+    width: 69px; 
+    height: 28px;
+    
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    background-color: #FBF5E5;
+}
+.input .userInput #submitButton:hover,
+.input .userInput #reset:hover {
+    background-color: #343233;
+    color: #FBF5E5;
+    cursor: pointer;
+}
+
+.displayUserInput .displayValue {
+    color: #EE247E;
+}
+
+
+/* Simulation Design */
+.test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px; 
+    border: 5.62px solid #000;
+    border-radius: 88.81px 0px 0px 88.81px;
+
+    width: 1124px;
+    height: 405px;
+
+    background-color: #FBF5E5;
+}
+
+.green {
+    background-color: #9BAD62;
+    color: #343233;
+}
+
+.test .hour,
+.test .minutes, 
+.test .seconds {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 40px; 
+    gap: 10px; 
+    padding: 5px;
+}
+.test .state { 
+    border-radius: 50%;
+
+    width: 84.25px; 
+    height: 84.25px;
+ 
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 57.73px;
+    font-weight: bold;
+    color: #343233;
+
+    background-color: #F6D868;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.test .hour .line,
+.test .minutes .line,
+.test .seconds .line {
+    width: 52.16px; 
+    height: 3.21px; 
+
+    background-color: black;
+}
+    /*Final States*/
+.test .hour #E,
+.test .hour #D,
+.test .minutes #F1,
+.test .seconds #F2 { 
+    border-radius: 50%;
+    border: 3px solid #000;
+    
+    width: 84.25px; 
+    height: 84.25px;
+    
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+    /*Labels*/
+.test .hour .label,
+.test .minutes .label,
+.test .seconds .label {
+    border-radius: 20px;
+
+    width: 87px;
+    height: 43px;
+
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 21.73px;
+    font-weight: bold;
+    color: #fcfcfc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #343233;
+}
+
+/* Result */
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 79px;
+    border: 1px solid #000;
+
+    width: 289px;
+    height: 53px;
+
+    text-align: center;
+    font-size: 21.73px;
+    font-weight: bold;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    background-color: #FBF5E5;
+}
+
+.clocking {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 66.16px;
+    border: 1px solid #000;
+    width: 402px;
+    height: 123.11px;
+    text-align: center;
+    background-color: rgb(3, 3, 3);
+}
+
+.clocking .binaryclock {
+    font-family: 'Jersey 25', sans-serif;
+    font-size: 92.13px;
+    font-weight: bold;
+    color: white;
+}
+
+
+/*.displayUserInput .displayValue {
+    color: #EE247E;
+}*/
