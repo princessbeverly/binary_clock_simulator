@@ -178,7 +178,137 @@ body{
     background-color: #343233;
 }
 
-/* Result */
+.fdescription {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: top;
+    gap: 50px;
+}
+.fdescription .origin{
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15.69px;
+    /* the gap between lines*/
+    row-gap: 5px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+    width: 300px;
+    height: 215px;
+}
+.fdescription .origin .emptyState,
+.fdescription .origin .greenState,
+.fdescription .origin .redState {
+    margin: 0;
+    padding: 0;
+}
+
+.fdescription .origin .emptyState p,
+.fdescription .origin .greenState p,
+.fdescription .origin .redState p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.0;
+}
+.fdescription .origin .originTitle,
+.fdescription .origin .emptyState,
+.fdescription .origin .greenState,
+.fdescription .origin .redState,
+.fdescription .origin .hoursState .hoursStateDescription p,
+.fdescription .origin .minutesecondState .minutesSecondDescription p{
+    text-align: center;
+    font-style: italic;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15.69px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.1;
+}
+.fdescription .origin .emptyState,
+.fdescription .origin .greenState,
+.fdescription .origin .redState,
+.fdescription .origin .hoursState,
+.fdescription .origin .minutesecondState{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.fdescription .origin .emptyState .yellowState{
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color:#F6D868;
+}
+.fdescription .origin .greenState #GreenClass{
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color:#9BAD62;
+}
+.fdescription .origin .redState #RedClass{
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    background-color:#EE247E;
+}
+
+.fdescription .resultdisplay{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.fdescription .resultDescription {
+    display: flex;
+    flex-direction: column;
+    
+}
+.fdescription .minutesecondState{
+    gap: 5px;
+}
+
+.fdescription .hoursState #HoursClass{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 61.44px;
+    width: 56px;
+    height: 24.11px;
+    background:#343233;
+
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15.69px;
+    font-size: 15.69px;
+    font-style: bold;
+    font-weight: 800;
+    color: white;
+}
+
+.fdescription .minutesecondState #minutes,
+.fdescription .minutesecondState #seconds{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 61.44px;
+    width: 73px;
+    height: 24px;
+    background:#343233;
+
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15.69px;
+    font-style: bold;
+    font-weight: 800;
+    color: white;
+}
+
+.resultdisplay{
+    display: flex;
+    align-items: center;
+    row-gap: 23px;;
+}
 .result {
     display: flex;
     justify-content: center;
@@ -200,10 +330,8 @@ body{
 .clocking {
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
     border-radius: 66.16px;
-    border: 1px solid #000;
     width: 402px;
     height: 123.11px;
     text-align: center;
@@ -217,7 +345,26 @@ body{
     color: white;
 }
 
+.resultDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    width: 294px;
+    height: 218px; 
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15.69px;
+    font-style:italic;
+    gap: 40px;
+}
 
-/*.displayUserInput .displayValue {
-    color: #EE247E;
-}*/
+/*how to make a border with width being 216px and the weight being 3px*/
+.fdescription .border1,
+.fdescription .border2 {
+    border: 3px solid #000;
+    width: 0px;
+    height: 216px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
