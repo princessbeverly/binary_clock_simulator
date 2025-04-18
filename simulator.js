@@ -2,6 +2,7 @@ const inputField = document.getElementById("userInput");
 const displayParagraph = document.querySelector(".displayValue");
 const submitButton = document.getElementById("submitButton");
 const divElements = document.querySelectorAll("div.state");
+const lineElement = document.querySelectorAll("div.line");
 const clock = document.querySelector(".binaryclock");
 const invalidRes = document.querySelector(".validationResult");
 const validRes = document.querySelector(".validationResult")
@@ -18,6 +19,10 @@ reset.addEventListener("click", function () {
         invalidRes.textContent = "";
         validRes.textContent = "";
         resDes.textContent = "";
+    });
+    lineElement.forEach(line => {
+        line.classList.remove("green");
+        line.classList.remove("wrong");
     });
 });
 submitButton.addEventListener("click", function () {
@@ -43,7 +48,6 @@ submitButton.addEventListener("click", function () {
     const hour = binaryinput[0] ?? "";
     const minute = binaryinput[1] ?? "";
     const second = binaryinput[2] ?? "";
-    console.log(hour.length, minute.length, second.length);
 
     runMinute = true;
     runSecond = true;
@@ -279,12 +283,14 @@ function green(input, index){
     setTimeout(() => {
         divElements[index].textContent = input;
         divElements[index].classList.add("green");
+        lineElement[index].classList.add("green");
     }, index * 600);
 }
 function wrong(input, index){
     setTimeout(() => {
         divElements[index].textContent = input;
         divElements[index].classList.add("wrong");
+        lineElement[index].classList.add("wrong");
     }, index * 600);
 }
 function InvalidResult(){
