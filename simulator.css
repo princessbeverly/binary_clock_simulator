@@ -133,15 +133,27 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
-.test .hour .line,
-.test .minutes .line,
-.test .seconds .line {
+.test .line {
     width: 52.16px; 
     height: 3.21px; 
 
     background-color: black;
+}
+.line.green {
+    background-color: #9BAD62; 
+}
+
+.line.wrong {
+    background-color: #EE247E; 
 }
     /*Final States*/
 .test .hour #E,
@@ -176,6 +188,12 @@ body{
     justify-content: center;
 
     background-color: #343233;
+
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .fdescription {
@@ -241,18 +259,36 @@ body{
     width: 28px;
     height: 28px;
     background-color:#F6D868;
+
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 .fdescription .origin .greenState #GreenClass{
     border-radius: 50%;
     width: 28px;
     height: 28px;
     background-color:#9BAD62;
+
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 .fdescription .origin .redState #RedClass{
     border-radius: 50%;
     width: 28px;
     height: 28px;
     background-color:#EE247E;
+
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .fdescription .resultdisplay{
@@ -285,6 +321,12 @@ body{
     font-style: bold;
     font-weight: 800;
     color: white;
+
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .fdescription .minutesecondState #minutes,
@@ -302,6 +344,12 @@ body{
     font-style: bold;
     font-weight: 800;
     color: white;
+
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .resultdisplay{
@@ -336,6 +384,12 @@ body{
     height: 123.11px;
     text-align: center;
     background-color: rgb(3, 3, 3);
+
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .clocking .binaryclock {
