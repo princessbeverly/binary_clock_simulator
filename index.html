@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
 
         <style>
-            .state.green {
+            .state.green { 
                 background-color: #9BAD62;
             }
             .state.wrong {
@@ -27,7 +27,7 @@
             <div class = "userInput">
                 <div class = "arrangeInput">
                     <div class = "inputField">
-                        <input type="text" id="userInput" placeholder="Enter Binary Digits" />
+                        <input type="text" id="userInput" placeholder="XXXXX XXXXXX XXXXXX" />
                     </div>
                     <div class = "buttonField">
                         <button id="submitButton">Go</button>
@@ -92,15 +92,76 @@
         </div>
 
         <!-- Validation -->
-        <div class = "result">
-            <p>Result:<span class="validationResult"></span></p>
-        </div>
+        <div class = "fdescription">
+            <div class = "origin">
+                <div class = "originTitle">
+                    <p>Origin</p>
+                </div>
+                <div class = "emptyState">
+                    <div id = "YellowClass" class = "yellowState">
+                    </div>
+                    <div class = "yellowStateDescription">
+                        <p>States with no input</p>
+                    </div>
+                </div>
+                <div class = "greenState">
+                    <div id = "GreenClass" class = "greenState">
+                    </div>
+                    <div class = "greenStateDescription">
+                        <p>Valid bit or binary character</p>
+                    </div>
+                </div>
+                <div class = "redState">
+                    <div id = "RedClass" class = "redState">
+                    </div>
+                    <div class = "redStateDescription">
+                        <p>Invalid bit or binary character</p>
+                    </div>
+                </div>
+                <div class = "hoursState">
+                    <div id = "HoursClass" class = "hoursState">
+                        <p>HOURS</p>
+                    </div>
+                    <div class = "hoursStateDescription">
+                        <p>Accepts 4 or 5 bits</p>
+                    </div>
+                </div>
+                <div class = "minutesecondState">
+                    <div id = "minutes" class = "minutesStae">
+                        <p>MINUTES</p>
+                     </div>
+                    <div id = "seconds" class = "secondsState">
+                        <p>SECONDS</p>
+                    </div>
+                    <div class = "minutesSecondDescription">
+                    <p>Strictly accepts 6 bits</p>
+                     </div>
+                </div>
+            </div>
+            <div class = "border1">
 
-        <!-- Clock Display -->
-        <div class="clocking">
-            <h2>
-                <span class="binaryclock">00:00:00</span>
-            </h2>
+            </div>
+            <div class = "resultdisplay">
+                <div class = "result">
+                    <p>Result:<span class="validationResult"></span></p>
+                </div>
+        
+                <!-- Clock Display -->
+                <div class="clocking">
+                    <h2><span class="binaryclock">00:00:00</span></h2>
+                </div>
+            </div>
+            <div class = "border2">
+                
+            </div>
+            <div class = "resultDescription">
+                <div class = "resultTitle:">
+                    <p>Result Description</p>
+                </div>
+                <div class = "resultDescriptionText">
+                    <span class = "rdescribe"></span>
+                </div>
+            </div>
         </div>
         <script src="simulator.js"></script>
     </body>
