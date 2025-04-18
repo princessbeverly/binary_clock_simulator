@@ -130,42 +130,35 @@ submitButton.addEventListener("click", function () {
 
 });
 function hour_machine(input_hour) {
-    const hour_length = input_hour.length;
-    let red = 0;
+    
+    if(input_hour[0] == "1" && input_hour[1] == "1"){
+        green(input_hour[0], 0);
+        wrong(input_hour[1], 1);
+        runMinute = false;
+        return;
+    }
 
-    for (let i = 0; i < hour_length; i++) {
-        // If any bit is invalid (not 0 or 1), stop and highlight it
+    const hour_length = input_hour.length;
+    let red = 0, i = 0;
+
+    for (i = 0; i < hour_length; i++) {
         if (!inputValidation(input_hour[i])) {
             wrong(input_hour[i], i);
-            //InvalidResult();
             red = 1;
             break;
         }
 
-        // If we're at the last bit and the total length is invalid (not 4 or 5)
         if (i === hour_length - 1 && hour_length < 4) {
             wrong(input_hour[i], i);
-            //InvalidResult();
             red = 1;
             break;
         }else if(i === hour_length - 1 && hour_length > 5){
             wrong(input_hour[i-1], 4);
-            //InvalidResult();
             red = 1;
             break;
         }
 
-        // If all is good, mark the current bit green
         green(input_hour[i], i);
-    }
-
-    if(red === 0){
-        const hour_dec = parseInt(input_hour, 2);
-        if (hour_dec > 23) {
-            wrong(input_hour[hour_length - 1], hour_length - 1);
-            InvalidResult();
-            red = 1;
-        }
     }
 
     if (red === 1) {
@@ -174,7 +167,7 @@ function hour_machine(input_hour) {
 }
 
 function minute_machine(input_minute){
-    
+
     const minute = input_minute;
     const minute_length = input_minute.length;
     let i = 0, bitcounterlimit = 7, red = 0, index = 5;
@@ -185,6 +178,15 @@ function minute_machine(input_minute){
             //InvalidResult();
             red = 1;
             break;
+        }
+
+        if(minute[0] == "1" && minute[1] == "1" && minute[2] == "1" && minute[3] == "1"){
+            green(minute[0], 5);
+            green(minute[1], 6);
+            green(minute[2], 7);
+            wrong(minute[3], 8);
+            runSecond = false;
+            return;
         }
 
         if(i === minute_length - 1 && minute_length < bitcounterlimit-1){
@@ -203,20 +205,21 @@ function minute_machine(input_minute){
         index += 1; // Increment index for the next bit
     }
 
-    if (red === 0){
-        const minute_dec = parseInt(minute, 2);
-        if (minute_dec > 59) {
-            wrong(minute[minute_length - 1], minute_length - 1);
-            //InvalidResult();
-            red = 1;
-        }
-    }
-
     if (red == 1){
         runSecond = false;
     }
 }
 function second_machine(input_second){
+
+    if(input_second[0] == "1" && input_second[1] == "1" && input_second[2] == "1" && input_second[3] == "1"){
+        green(input_second[0], 11);
+        green(input_second[1], 12);
+        green(input_second[2], 13);
+        wrong(input_second[3], 14);
+        validity = false;
+        return;
+    }
+
     const second = input_second;
     const second_length = input_second.length;
     let i = 0, bitcounterlimit = 7, red = 0, index = 11;
@@ -244,14 +247,6 @@ function second_machine(input_second){
         index += 1; // Increment index for the next bit
     }
 
-    if(red === 0){
-        const second_dec = parseInt(second, 2);
-        if (second_dec > 59) {
-            wrong(second[second_length - 1], second_length - 1);
-            //InvalidResult();
-            red = 1;
-        }
-    }
 
     if (red == 1){
         validity = false;
