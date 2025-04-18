@@ -5,6 +5,7 @@ const divElements = document.querySelectorAll("div.state");
 const clock = document.querySelector(".binaryclock");
 const invalidRes = document.querySelector(".validationResult");
 const validRes = document.querySelector(".validationResult")
+const resDes = document.querySelector(".rdescribe");
 let runMinute, runSecond, validity, clockCounter;
 
 reset.addEventListener("click", function () {
@@ -16,6 +17,7 @@ reset.addEventListener("click", function () {
         displayParagraph.textContent = " ";
         invalidRes.textContent = "";
         validRes.textContent = "";
+        resDes.textContent = "";
     });
 });
 submitButton.addEventListener("click", function () {
@@ -25,6 +27,7 @@ submitButton.addEventListener("click", function () {
         console.log("No input provided");
         const invalidRes = document.querySelector(".validationResult");
         invalidRes.textContent = "INVALID";
+        describeRes("Inputted binary string is invalid because it has no input.");
         setTimeout(() => {
             invalidRes.classList.add("invalidResult");
             invalidRes.classList.remove("validResult");
@@ -78,6 +81,7 @@ submitButton.addEventListener("click", function () {
                                 //console.log("Invalid");
                                 InvalidResult();
                             } else {
+                                describeRes("Inputted binary string is valid.");
                                 hourdec = parseInt(hour, 2);
                                 minutedec = parseInt(minute, 2);
                                 seconddec = parseInt(second, 2);
@@ -101,11 +105,13 @@ submitButton.addEventListener("click", function () {
                             clockDisplay(hourdec, minutedec, "00");
                             console.log("All checks passed");
                             ValidResult();
+                            describeRes("Inputted binary string is valid.");
                         }
                     }, 3000);
                 }else{
                     console.log("Invalid");
                     InvalidResult();
+                    describeRes("Inputted binary string is invalid because it has no input.");
                 }
             }, 1000); // Wait a bit before minutes
         } else if(minute.length === 0){
@@ -120,11 +126,13 @@ submitButton.addEventListener("click", function () {
                     clockDisplay(hourdec, "00", "00");
                     console.log("All checks passed");
                     ValidResult();
+                    describeRes("Inputted binary string is valid.");
                 }
             }, 3000);
         }else{
             console.log("Invalid");
             InvalidResult();
+            describeRes("Inputted binary string is invalid because it has no input.");
         }
     }, 0);
 
@@ -135,6 +143,7 @@ function hour_machine(input_hour) {
         green(input_hour[0], 0);
         wrong(input_hour[1], 1);
         runMinute = false;
+        describeRes("Inputted binary string for hour is invalid because it has exceeded the maximum value of 23.");
         return;
     }
 
@@ -145,16 +154,19 @@ function hour_machine(input_hour) {
         if (!inputValidation(input_hour[i])) {
             wrong(input_hour[i], i);
             red = 1;
+            describeRes("Inputted character is invalid because it is not a binary digit.");
             break;
         }
 
         if (i === hour_length - 1 && hour_length < 4) {
             wrong(input_hour[i], i);
             red = 1;
+            describeRes("Inputted binary string for hour is invalid because it has less than 4 bits.");
             break;
         }else if(i === hour_length - 1 && hour_length > 5){
             wrong(input_hour[i-1], 4);
             red = 1;
+            describeRes("Inputted binary string for hour is invalid because it has more than 5 bits.");
             break;
         }
 
@@ -175,8 +187,8 @@ function minute_machine(input_minute){
         // index is the continuation of the dev elements from the hour machine
         if(!inputValidation(minute[i])){
             wrong(minute[i], index);
-            //InvalidResult();
             red = 1;
+            describeRes("Inputted character is invalid because it is not a binary digit.");
             break;
         }
 
@@ -186,18 +198,19 @@ function minute_machine(input_minute){
             green(minute[2], 7);
             wrong(minute[3], 8);
             runSecond = false;
+            describeRes("Inputted binary string for minute is invalid because it has exceeded the maximum value of 59.");
             return;
         }
 
         if(i === minute_length - 1 && minute_length < bitcounterlimit-1){
             wrong(minute[i], index);
-            //InvalidResult();
             red = 1;
+            describeRes("Inputted binary string for minute is invalid because it has less than 6 bits.");
             break;
         }else if(i === minute_length - 1 && minute_length > bitcounterlimit-1){
             wrong(minute[i-1], 10);
-            //InvalidResult();
             red = 1;
+            describeRes("Inputted binary string for minute is invalid because it has more than 6 bits.");
             break;
         }
         // If all is good, mark the current bit green
@@ -217,6 +230,7 @@ function second_machine(input_second){
         green(input_second[2], 13);
         wrong(input_second[3], 14);
         validity = false;
+        describeRes("Inputted binary string for second is invalid because it has exceeded the maximum value of 59.");
         return;
     }
 
@@ -227,19 +241,19 @@ function second_machine(input_second){
         // index is the continuation of the dev elements from the hour machine
         if(!inputValidation(second[i])){
             wrong(second[i], index);
-            //InvalidResult();
             red = 1;
+            describeRes("Inputted character is invalid because it is not a binary digit.");
             break;
         }
         if(i === second_length - 1 && second_length < bitcounterlimit-1){
             wrong(second[i], index);
-            //InvalidResult();
             red = 1;
+            describeRes("Inputted binary string for second is invalid because it has less than 6 bits.");
             break;
         }else if(i === second_length - 1 && second_length > bitcounterlimit-1){
             wrong(second[i-1], 17);
-            //InvalidResult();
             red = 1;
+            describeRes("Inputted binary string for second is invalid because it has more than 6 bits.");
             break;
         }
         // If all is good, mark the current bit green
@@ -274,7 +288,7 @@ function wrong(input, index){
     }, index * 600);
 }
 function InvalidResult(){
-    invalidRes.textContent = "INVALID";
+    invalidRes.textContent = " INVALID";
     setTimeout(() => {
         invalidRes.classList.add("invalidResult");
         invalidRes.classList.remove("validResult");
@@ -282,7 +296,7 @@ function InvalidResult(){
     clockCounter = 0;
 }
 function ValidResult(){
-    validRes.textContent = "VALID";
+    validRes.textContent = " VALID";
     setTimeout(() => {
         validRes.classList.add("validResult");
         validRes.classList.remove("invalidResult");
@@ -295,4 +309,10 @@ function clockDisplay(hourinput, minuteinput, secondsinput) {
     clock.textContent = time;
     clock.style.visibility = "visible";
     clock.style.opacity = 1;
+}
+
+function describeRes(inputtedString){
+    setTimeout(()=> {
+        resDes.textContent = inputtedString;
+    }, 6000);
 }
