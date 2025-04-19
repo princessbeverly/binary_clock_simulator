@@ -170,6 +170,264 @@
                 </div>
             </div>
         </div>
+        <div class = "boundary"></div>
+        
+        <div class = "information">
+            <div class = "definitionInfo">
+                <div class = "firstInfo">
+                    <div class = "definitionTitle">
+                        <p>NFA Definition</p>
+                        <p>of State Binary Clock</p>
+                    </div>
+                    <div class = "definedNFA">
+                        <p>NFA Binary Clock = {Q, ∑, q0, F, δ}</p>
+                        <p>Q = {A, B, C, D, E, F, G, H, I, J, K, L, M, O, P, R, S, <br> T, I1, J1, K1, L1, M1, O1, P1, R1, S1, T1}</p>
+                        <p>∑ = {0, 1, " "}</p>
+                        <p>q0 = A</p>
+                        <p>F = {G, H, T, T1}</p>            
+                    </div>
+                </div>
+                <div class = "secondInfo">
+                    <div class = "secondInfoTitle">
+                        <h3>Project Information</h3>
+                    </div>
+                    <div class = "secondInfoDescription">
+                        <p><strong>Language Description:</strong> Strings representing binary clock states. Strings representing binary clock states like 1100, 0011.</p>
+                        <p>This simulator is a 24-Hour Binary Clock format hence, it accepts a long binary string input with required number of bits per space to cater the hours, minutes, and seconds.</p>
+                        <p><em>Created by:</em> <strong><em>PRINCESS BEVERLY R. ALA-AN</em></strong> </p>
+                    </div>
+                </div>
+            </div>
+            <div class = "transitionTable">
+                <div class = "row1">
+                    <div class = "titlebox">
+                        <h3>State Transitions</h3>
+                    </div>
+                    <div class = "table1">
+                        <table class="transition">
+                            <tbody>
+                                <!-- Row 1 (Header Optional) -->
+                                <tr>
+                                    <th>State\Input</th><th>0</th><th>1</th><th>" "</th>
+                                </tr>
+                                <!-- Rows 2 to 11 -->
+                                
+                                    <tr>
+                                      <td>->A</td> 
+                                      <td>B, C</td> 
+                                      <td>B</td> 
+                                      <td>Φ</td>
+                                    </tr>
+                                    <tr>
+                                      <td>B</td> 
+                                      <td>C</td> 
+                                      <td>X</td> 
+                                      <td>Φ</td>
+                                    </tr>
+                                    <tr>
+                                      <td>C</td> 
+                                      <td>F</td> 
+                                      <td>F</td> 
+                                      <td>Φ</td>
+                                    </tr>
+                                    <tr>
+                                      <td>D</td> 
+                                      <td>E</td> 
+                                      <td>E</td> 
+                                      <td>Φ</td>
+                                    </tr>
+                                    <tr>
+                                      <td>E</td> 
+                                      <td>F</td> 
+                                      <td>F</td> 
+                                      <td>Φ</td>
+                                    </tr>
+                                    <tr>
+                                      <td>F</td> 
+                                      <td>G</td> 
+                                      <td>G</td> 
+                                      <td>Φ</td>
+                                    </tr>
+                                    <tr>
+                                      <td>*G</td> 
+                                      <td>H</td> 
+                                      <td>H</td> 
+                                      <td>I</td>
+                                    </tr>
+                                    <tr>
+                                      <td>*H</td> 
+                                      <td>Φ</td> 
+                                      <td>Φ</td> 
+                                      <td>I</td>
+                                    </tr>
+                                    <tr>
+                                      <td>I</td> 
+                                      <td>J</td> 
+                                      <td>O</td> 
+                                      <td>Φ</td>
+                                    </tr>
+                                  
+                            </tbody>
+                        </table>                        
+                    </div>
+                </div>
+                <div class = "row2">
+                    <div class = "table2">
+                        <table class="transition">
+                            <tbody>
+                                <!-- Row 1 (Header Optional) -->
+                                <tr>
+                                    <th>State\Input</th><th>0</th><th>1</th><th>" "</th>
+                                </tr>
+                                <!-- Rows 2 to 11 -->
+                                <tr>
+                                    <td>I</td> 
+                                    <td>J</td> 
+                                    <td>O</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>J</td> 
+                                    <td>K</td> 
+                                    <td>K</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>K</td> 
+                                    <td>L</td> 
+                                    <td>L</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>L</td> 
+                                    <td>M</td> 
+                                    <td>M</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>M</td> 
+                                    <td>S</td> 
+                                    <td>S</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>O</td> 
+                                    <td>K</td> 
+                                    <td>P</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>P</td> 
+                                    <td>L</td> 
+                                    <td>R</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>R</td> 
+                                    <td>M</td> 
+                                    <td>Φ</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>S</td> 
+                                    <td>T</td> 
+                                    <td>T</td> 
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>*T</td> 
+                                    <td>Φ</td> 
+                                    <td>Φ</td> 
+                                    <td>I1</td>
+                                  </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class = "table3">
+                        <table class="transition">
+                            <tbody>
+                                <!-- Row 1 (Header Optional) -->
+                                <tr>
+                                    <th>State\Input</th><th>0</th><th>1</th><th>" "</th>
+                                </tr>
+                                <!-- Rows 2 to 11 -->
+                                <tr>
+                                    <td>I1</td>
+                                    <td>J1</td>
+                                    <td>Φ</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>J1</td>
+                                    <td>Φ</td>
+                                    <td>O1</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>K1</td>
+                                    <td>L1</td>
+                                    <td>M1</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>L1</td>
+                                    <td>M1</td>
+                                    <td>M1</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>M1</td>
+                                    <td>S1</td>
+                                    <td>T1</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>O1</td>
+                                    <td>K1</td>
+                                    <td>Φ</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>P1</td>
+                                    <td>L1</td>
+                                    <td>R1</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>R1</td>
+                                    <td>M1</td>
+                                    <td>Φ</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>S1</td>
+                                    <td>T1</td>
+                                    <td>Φ</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                  <tr>
+                                    <td>*T1</td>
+                                    <td>Φ</td>
+                                    <td>Φ</td>
+                                    <td>Φ</td>
+                                  </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "boundary"></div>
+        <div class = "nfaDiagram">
+            <div class = "titleDiagram">
+                <h2>NFA Diagram of Binary Clock</h2>
+            </div>
+            <div class = "diagram">
+
+            </div>
+        </div>
+        <div class = "boundary"></div>
         <script src="simulator.js"></script>
     </body>
 </html>
