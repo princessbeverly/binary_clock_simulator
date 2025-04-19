@@ -82,7 +82,7 @@ submitButton.addEventListener("click", function () {
                         // Final validity check
                         setTimeout(() => {
                             if (!runMinute || !runSecond || !validity) {
-                                //console.log("Invalid");
+                                
                                 InvalidResult();
                             } else {
                                 describeRes("Inputted binary string is valid.");
@@ -95,7 +95,7 @@ submitButton.addEventListener("click", function () {
                                 ValidResult();
                             }
                         }, 9000);
-                    }, 1000); // Wait a bit before seconds
+                    }, 1000); 
                 } else if(second.length === 0){
                     setTimeout(() => {
                         if (!runMinute || !runSecond || !validity) {
@@ -117,7 +117,7 @@ submitButton.addEventListener("click", function () {
                     InvalidResult();
                     describeRes("Inputted binary string is invalid because it has no input.");
                 }
-            }, 1000); // Wait a bit before minutes
+            }, 1000); 
         } else if(minute.length === 0){
             setTimeout(() => {
                 if (!runMinute || !runSecond || !validity) {
@@ -284,6 +284,9 @@ function green(input, index){
         divElements[index].textContent = input;
         divElements[index].classList.add("green");
         lineElement[index].classList.add("green");
+        if(index == 5){
+            lineElement[4].classList.add("green");
+        }
     }, index * 600);
 }
 function wrong(input, index){
@@ -320,5 +323,5 @@ function clockDisplay(hourinput, minuteinput, secondsinput) {
 function describeRes(inputtedString){
     setTimeout(()=> {
         resDes.textContent = inputtedString;
-    }, 6000);
+    }, 3000);
 }
