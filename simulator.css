@@ -20,7 +20,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
-} /*okay*/
+} 
 .input p {
     align-items: flex-start;
     
@@ -28,7 +28,7 @@ body{
     font-weight: 400;
     font-size: 21.73px;
     color: #343233;
-}/*okay*/
+}
 
 .input .userInput .arrangeInput{
     display: flex;
@@ -206,15 +206,16 @@ body{
 .fdescription .origin{
     display: flex;
     flex-direction: column;
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: 15.69px;
-    /* the gap between lines*/
     row-gap: 5px;
     margin: 0;
     padding: 0;
     line-height: 1.1;
+    
     width: 300px;
     height: 215px;
+    
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15.69px;
 }
 .fdescription .origin .emptyState,
 .fdescription .origin .greenState,
@@ -412,7 +413,7 @@ body{
     gap: 40px;
 }
 
-/*how to make a border with width being 216px and the weight being 3px*/
+
 .fdescription .border1,
 .fdescription .border2 {
     border: 3px solid #000;
@@ -422,3 +423,145 @@ body{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.boundary {
+    border: 3px solid #000;
+    width: 1201px;
+    margin: 0 auto;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 39px;
+}
+.information .definitionInfo .firstInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 328px;
+    height: 295px;
+}
+.information .definitionInfo .firstInfo .definitionTitle p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #343233;
+    margin: 0 auto;
+}
+
+.information .definitionInfo .firstInfo .definedNFA p {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15.69px;
+    font-style: italic;
+    color: #343233;
+}
+
+.information .definitionInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-family: 'Roboto Condensed', sans-serif;
+    gap: 8px;
+}
+
+.information .definitionInfo .secondInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 328px;
+    height: 265px;
+}
+
+
+.information .transitionTable{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 835px;
+    height: 590px;
+    
+    gap: 8px;
+}
+.information .transitionTable .row1,
+.information .transitionTable .row2{
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 27px;
+}
+
+.information .transitionTable .row1 .titlebox,
+.information .transitionTable .row1 .table1,
+.information .transitionTable .row2 .table2,
+.information .transitionTable .row2 .table3{
+    width: 344.97px;
+    height: 274.01px
+}
+
+.information .transitionTable .row1 .titlebox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 21.73px;
+    font-weight: bold;
+    color: #343233;
+}
+
+.transition {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.transition th {
+    background-color: #F8CBAD;
+    border: 1px solid #38576A;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+}
+
+.transition td {
+    border: 1px solid #38576A;
+    padding: 0;
+    margin: 0;
+    width: 25%;
+    height: calc(100% / 11); 
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+}
+
+.transition td:first-child {
+    background-color: #F3AF88; 
+}
+
+.nfaDiagram {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    gap: 5px;
+}
+.nfaDiagram .diagram{
+    width: 1198px;
+    height: 233px;
+    background-image: url('nfa_binary_clock.png');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+
