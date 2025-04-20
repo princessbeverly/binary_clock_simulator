@@ -78,26 +78,26 @@ submitButton.addEventListener("click", function () {
 
     // this is the logic in order for the order of the process for each substring
     setTimeout(() => {
-        if(hour.length === 0){
+        if(hour.length === 0){ //just making sure that if the hour substring is empty it should stop the process here
             InvalidResult();
             return;
         }
-        hour_machine(hour);
+        hour_machine(hour); // calling out hour_machine to process substring hour
 
-        if (runMinute && minute.length > 0) {
+        if (runMinute && minute.length > 0) { // if the runMinute is true and there is an input for minute, it processes substring minutes
             setTimeout(() => {
                 minute_machine(minute);
 
-                if (runSecond && second.length > 0) {
+                if (runSecond && second.length > 0) { // if runSecond is true and there is input for seconds, it processes substring seconds
                     setTimeout(() => {
                         second_machine(second);
 
                         // Final validity check
                         setTimeout(() => {
-                            if (!runMinute || !runSecond || !validity) {
+                            if (!runMinute || !runSecond || !validity) { // if at some point validity is false, then the entire string becomes invalid
                                 
                                 InvalidResult();
-                            } else {
+                            } else { // else, it is valid and displays the equivalent decimal value of the binary clock
                                 describeRes("Inputted binary string is valid.");
                                 hourdec = parseInt(hour, 2);
                                 minutedec = parseInt(minute, 2);
@@ -109,6 +109,7 @@ submitButton.addEventListener("click", function () {
                             }
                         }, 9000);
                     }, 1000); 
+                    // the following else if are just to avoid errors
                 } else if(second.length === 0){
                     setTimeout(() => {
                         if (!runMinute || !runSecond || !validity) {
@@ -157,7 +158,7 @@ submitButton.addEventListener("click", function () {
 //this is the sub-state machine for the hour substring
 function hour_machine(input_hour) {
     
-    if(input_hour[0] == "1" && input_hour[1] == "1"){
+    if(input_hour[0] == "1" && input_hour[1] == "1"){ // this is to impose if the substring follows the invalid pattern
         green(input_hour[0], 0);
         wrong(input_hour[1], 1);
         runMinute = false;
@@ -167,15 +168,16 @@ function hour_machine(input_hour) {
 
     const hour_length = input_hour.length;
     let red = 0, i = 0;
-
+    // if the substring doesn't follow the invalid pattern, then it goes through this loop to process each bit
     for (i = 0; i < hour_length; i++) {
-        if (!inputValidation(input_hour[i])) {
+        if (!inputValidation(input_hour[i])) { // if the character for the substring is valid
             wrong(input_hour[i], i);
             red = 1;
             describeRes("Inputted character is invalid because it is not a binary digit.");
             break;
         }
 
+        // checks if it passes the required number of bits 
         if (i === hour_length - 1 && hour_length < 4) {
             wrong(input_hour[i], i);
             red = 1;
@@ -187,10 +189,12 @@ function hour_machine(input_hour) {
             describeRes("Inputted binary string for hour is invalid because it has more than 5 bits.");
             break;
         }
-
+        // if all is well for each character, then it becomes valid
         green(input_hour[i], i);
     }
 
+    //if at some point, it gets inside the checker and the red becomes 1. We change the value of runMinute to false. 
+    //this means that the substring is invalid therefore, it shouldn't process the next substrings anymore
     if (red === 1) {
         runMinute = false;
     }
@@ -202,6 +206,7 @@ function minute_machine(input_minute){
     const minute = input_minute;
     const minute_length = input_minute.length;
     let i = 0, bitcounterlimit = 7, red = 0, index = 5;
+    
     for (i = 0; i < minute_length; i++){
         // index is the continuation of the dev elements from the hour machine
         if(!inputValidation(minute[i])){
@@ -211,6 +216,7 @@ function minute_machine(input_minute){
             break;
         }
 
+        // this is the invalid pattern. If the substring qualifies this, it becomes invalid
         if(minute[0] == "1" && minute[1] == "1" && minute[2] == "1" && minute[3] == "1"){
             green(minute[0], 5);
             green(minute[1], 6);
@@ -221,6 +227,7 @@ function minute_machine(input_minute){
             return;
         }
 
+        // if the substring is okay then, we check the length of the substring
         if(i === minute_length - 1 && minute_length < bitcounterlimit-1){
             wrong(minute[i], index);
             red = 1;
@@ -245,6 +252,7 @@ function minute_machine(input_minute){
 //this is the sub-state machine for the seconds
 function second_machine(input_second){
 
+    // checking the invalid pattern. If it checks then it is invalid
     if(input_second[0] == "1" && input_second[1] == "1" && input_second[2] == "1" && input_second[3] == "1"){
         green(input_second[0], 11);
         green(input_second[1], 12);
@@ -266,6 +274,8 @@ function second_machine(input_second){
             describeRes("Inputted character is invalid because it is not a binary digit.");
             break;
         }
+
+        //checkes the length of the string
         if(i === second_length - 1 && second_length < bitcounterlimit-1){
             wrong(second[i], index);
             red = 1;
@@ -296,17 +306,19 @@ function inputValidation(element){
         return false;
     }
 }
+
 function green(input, index){
     setTimeout(() => {
         divElements[index].textContent = input;
         divElements[index].classList.add("green");
         lineElement[index].classList.add("green");
-        if(index == 5){
+        if(index == 5){ //if at some point, the hour substring is length 4, the line before the state for minutes should change color
             lineElement[4].classList.add("green");
         }
     }, index * 600);
 }
 function wrong(input, index){
+    // this is the pink, which means the bit is invalid
     setTimeout(() => {
         divElements[index].textContent = input;
         divElements[index].classList.add("wrong");
