@@ -9,6 +9,7 @@ const validRes = document.querySelector(".validationResult")
 const resDes = document.querySelector(".rdescribe");
 let runMinute, runSecond, validity, clockCounter;
 
+//this is for the reset button
 reset.addEventListener("click", function () {
     divElements.forEach(div => {
         div.textContent = "";
@@ -25,6 +26,8 @@ reset.addEventListener("click", function () {
         line.classList.remove("wrong");
     });
 });
+
+// the simulator processes once we click go button
 submitButton.addEventListener("click", function () {
     
     // if input has nothing
@@ -40,22 +43,26 @@ submitButton.addEventListener("click", function () {
         return;
     }
 
+    //this is to display the current input from the user
     const tokenizedInput = inputField.value.split("");
     const displayInput = tokenizedInput.join(" ");
     displayParagraph.textContent = ` ${displayInput}`;
 
+    // the delimiter for each substring is the space character
     const binaryinput = inputField.value.split(" ");
     const hour = binaryinput[0] ?? "";
     const minute = binaryinput[1] ?? "";
     const second = binaryinput[2] ?? "";
 
+    // these are our checkers; each of these turns false if the substring for either of the three becomes invalid hence, it stops on processing
     runMinute = true;
     runSecond = true;
     validity = true;
 
+    // these variables are used to display the equivalent decimal number of the binary time
     let hourdec, minutedec, seconddec;
 
-
+    // if the user immediately inputs something and no longer wants to click reset button, this allows automatic reset
     divElements.forEach(div => {
         div.textContent = "";
         div.classList.remove("green");
@@ -64,6 +71,12 @@ submitButton.addEventListener("click", function () {
         invalidRes.textContent = "";
         validRes.textContent = "";
     });
+    lineElement.forEach(line => {
+        line.classList.remove("green");
+        line.classList.remove("wrong");
+    });
+
+    // this is the logic in order for the order of the process for each substring
     setTimeout(() => {
         if(hour.length === 0){
             InvalidResult();
@@ -141,6 +154,7 @@ submitButton.addEventListener("click", function () {
     }, 0);
 
 });
+//this is the sub-state machine for the hour substring
 function hour_machine(input_hour) {
     
     if(input_hour[0] == "1" && input_hour[1] == "1"){
@@ -182,6 +196,7 @@ function hour_machine(input_hour) {
     }
 }
 
+// this is the sub-state machine for the minutes
 function minute_machine(input_minute){
 
     const minute = input_minute;
@@ -226,6 +241,8 @@ function minute_machine(input_minute){
         runSecond = false;
     }
 }
+
+//this is the sub-state machine for the seconds
 function second_machine(input_second){
 
     if(input_second[0] == "1" && input_second[1] == "1" && input_second[2] == "1" && input_second[3] == "1"){
